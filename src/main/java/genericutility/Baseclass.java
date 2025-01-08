@@ -1,27 +1,33 @@
 package genericutility;
 
+import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 public class Baseclass {
 
 
 public static Properties p=null; 
 
-public DatabaseUtility dlib=new DatabaseUtility();
+public DatabaseUtils dlib=new DatabaseUtils();
+public Fileutils fu=new Fileutils();
 
 
-public static WebDriver sdriver;
+public static WebDriver driver;
 
 @BeforeClass(alwaysRun=true)
-{
-	public void config()
+
+	public void LaunchBrowser() throws IOException
 	{
-		String BROWSER=flib.getPropertyKeyValue("browser1");
-		if(BROWSER.equalsIgnoreCase("Chrome"))
+		String URL=fu.getDataFromPropertyFile("URL");
+		String BROWSER=fu.getDataFromPropertyFile("browser");
+		if(BROWSER.equalsIgnoreCase("chrome"))
 		{
 			driver=new ChromeDriver();
 		}
@@ -31,27 +37,14 @@ public static WebDriver sdriver;
 		}
 		else
 		{
-			System.out.println("Invalid browser");
+			System.out.print("Invalid Browser");
 		}
-		sdriver=driver;
-		wlib.maximizeTheBrowser(driver);
-	}
-	@BeforeMethod(alwaysRun=true)
-	{
-		public void configBM()
-		{
-			String URL=flib.getPropertyKeyValue("url");
-			driver.get(URL);
-			
-		}
-		@AfterClass(alwaysRun=true)
-		{
-			public void configAC()
-			{
-				driver.quit();
-				System.out.println("---close the Browser--");
-			}
-		}
-	}
 }
+@AfterClass(alwaysRun=true)
+public void closeBrowser()
+{
+	System.out.print("close Browser");
+}
+}
+
 

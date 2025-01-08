@@ -17,15 +17,36 @@ private WebElement mobilenotext;
 @FindBy(xpath="//input[@data-type='password']")
 private WebElement newpasswordtext;
 
+@FindBy(xpath="//button[@name='websubmit']")
+private WebElement submitbtn;
 
 public WebElement getfirstnametext()
 {
 	return firstnametext;
 }
-public WebElement getfirstnametext()
+public WebElement getlastnametext()
 {
-	return firstnametext;
+	return lastnametext;
 }
-
-
+public WebElement getregemailtext()
+{
+	return mobilenotext;
+}
+public WebElement getmobilenotext()
+{
+	return newpasswordtext;
+}
+public WebElement getsubmitbtn()
+{
+	return submitbtn;
+}
+public void NewAccountpage(String firstname,String lastname,int mobileno, String newpassword)
+{
+	firstnametext.sendKeys("Supreetha");
+	lastnametext.sendKeys("gowda");
+	mobilenotext.sendKeys("9898787822");
+	newpasswordtext.sendKeys("Supri66@");
+	submitbtn.click();
+	
+}
 }

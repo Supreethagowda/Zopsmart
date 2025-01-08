@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
+import genericutility.Forgotpasswordpage;
 import genericutility.LoginPOMpage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -16,10 +17,13 @@ public class VerifyForgotPasswordpage {
 	{
 	
 		LoginPOMpage lp=new LoginPOMpage();
-		ChromeOptions opt=new ChromeOptions();
-		WebDriverManager.chromedriver().setup();
-		WebDriver driver=new ChromeDriver(opt);
-		driver.get("https://www.facebook.com/");
+	lp.getForgotpasswordlink();
+	Forgotpasswordpage fp=new Forgotpasswordpage();
+	fp.getmobilenumber();
+	fp.getsubmitbutton();
+	
+	
+	
 		
 	}
 }

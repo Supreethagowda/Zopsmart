@@ -1,5 +1,6 @@
 package genericutility;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -22,6 +23,9 @@ private WebElement Forgotpasswordlink;
 private WebElement createnewaccount;
 
 
+public LoginPOMpage(WebDriver driver) {
+	PageFactory.initElements(driver,this);
+}
 public WebElement getemailtext()
 {
 	return emailtextfld;

@@ -19,13 +19,13 @@ public DatabaseUtils dlib=new DatabaseUtils();
 public Fileutils fu=new Fileutils();
 
 
-public static WebDriver driver;
+public static  WebDriver driver;
 
 @BeforeClass(alwaysRun=true)
 
 	public void LaunchBrowser() throws IOException
 	{
-		String URL=fu.getDataFromPropertyFile("URL");
+//		String URL=fu.getDataFromPropertyFile();
 		String BROWSER=fu.getDataFromPropertyFile("browser");
 		if(BROWSER.equalsIgnoreCase("chrome"))
 		{
